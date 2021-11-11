@@ -47,8 +47,8 @@ import './node_modules/@regulaforensics/vp-frontend-face-components/dist/main.js
 
 In ```index.html``` connect ```index.js``` and add the name of the component you want to use. Available components:
 
-1. ```<face-capture-wc></face-capture-wc>``` - for create a face snapshot;
-1. ```<face-liveness-wc></face-liveness-wc>``` - for liveness verification;
+1. ```<face-capture></face-capture>``` - for create a face snapshot;
+1. ```<face-liveness></face-liveness>``` - for liveness verification;
 
 ### Adding to an existing project:
 
