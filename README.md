@@ -76,7 +76,7 @@ The ```cdn``` folder contains an example of using the component when connecting 
 Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
 
 ```html
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@1.0.0/dist/main.js"></script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@1.1.0/dist/main.js"></script>
 ```
 
 Add the name of the component to the html.
