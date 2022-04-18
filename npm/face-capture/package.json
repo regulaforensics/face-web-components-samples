@@ -9,6 +9,6 @@
   "author": "Regula forensic",
   "license": "ISC",
   "dependencies": {
-    "@regulaforensics/vp-frontend-face-components": "^1.1.0"
+    "@regulaforensics/vp-frontend-face-components": "^1.3.0"
   }
 }
