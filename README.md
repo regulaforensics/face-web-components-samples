@@ -134,8 +134,8 @@ module.exports = {
 
 Import ```@face-component``` into your ```index.ts```:
 
-```javascript
-import './node_modules/@regulaforensics/vp-frontend-face-components/dist/main.js';
+```typescript
+import '@face-component';
 ```
 
 In ```index.html``` connect ```index.js``` like:
