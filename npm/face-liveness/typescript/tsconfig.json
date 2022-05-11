@@ -21,6 +21,6 @@
       "@face-component": ["./node_modules/@regulaforensics/vp-frontend-face-components/dist/main.js"],
       "@face-types": ["./node_modules/@regulaforensics/vp-frontend-face-components/lib/web-components"]
     }
-  },
+  }
 }
 
