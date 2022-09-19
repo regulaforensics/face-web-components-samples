@@ -1,5 +1,5 @@
 // Importing the component
-import './node_modules/@regulaforensics/vp-frontend-face-components/dist/main.js';
+import '@regulaforensics/vp-frontend-face-components';
 
 // Get our component
 const component = document.getElementsByTagName('face-capture')[0];
