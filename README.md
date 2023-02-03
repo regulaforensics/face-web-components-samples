@@ -9,7 +9,7 @@
 
 ## About
 
-This repository contains examples of using [@regulaforensics/vp-frontend-face-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-face-components).
+This repository contains examples of using [@regulaforensics/vp-frontend-face-components-beta](https://www.npmjs.com/package/@regulaforensics/vp-frontend-face-components-beta).
 
 ## CDN sample
 
@@ -21,7 +21,7 @@ Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:p
 
 ```html
 <!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@<VERSION>/dist/main.js"></script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components-beta@<VERSION>/dist/main.js"></script>
 ```
 
 Add the name of the component tag to the html code.

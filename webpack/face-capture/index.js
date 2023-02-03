@@ -1,4 +1,4 @@
-import '@regulaforensics/vp-frontend-face-components';
+import '@regulaforensics/vp-frontend-face-components-beta';
 
 const component = document.querySelector('face-capture');
 

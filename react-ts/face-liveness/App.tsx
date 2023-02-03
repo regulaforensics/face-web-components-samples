@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
     FaceLivenessWebComponent,
     FaceLivenessDetailType
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-face-components-beta';
 
 function App(): JSX.Element {
     const component = React.useRef<FaceLivenessWebComponent>(null);

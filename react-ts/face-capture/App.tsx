@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
     FaceDetectionWebComponent,
     FaceCaptureDetailType
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-face-components-beta';
 
 function App(): JSX.Element {
     const component = React.useRef<FaceDetectionWebComponent>(null);
@@ -27,7 +27,7 @@ function App(): JSX.Element {
         }
     }, []);
 
-    return <face-capture ref={component}></face-capture>;
+    return <face-capture start-screen ref={component}></face-capture>;
 }
 
 export default App;

@@ -6,7 +6,7 @@ import {
     IFaceLiveness,
     IFaceDetection,
     IBaseComponent,
-} from '@regulaforensics/vp-frontend-document-components';
+} from '@regulaforensics/vp-frontend-face-components-beta';
 
 declare global {
     namespace JSX {
