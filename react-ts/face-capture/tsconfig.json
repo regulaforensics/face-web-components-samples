@@ -16,11 +16,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "@face-component": ["./node_modules/@regulaforensics/vp-frontend-face-components/dist/main.js"],
-      "@face-types": ["./node_modules/@regulaforensics/vp-frontend-face-components/lib/web-components"]
-    }
+    "jsx": "react"
   }
 }
-
