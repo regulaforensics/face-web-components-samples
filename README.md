@@ -67,8 +67,8 @@ Follow the steps as in [Webpack sample](#webpack-sample).
 
 ### Face detection component
 
-https://codepen.io/regulaforensics/pen/ExprgLX
+https://codepen.io/regulaforensics/pen/zYdParM
 
 ### Face liveness component
 
-https://codepen.io/regulaforensics/pen/QWBYybR
+https://codepen.io/regulaforensics/pen/pordKzd
