@@ -1,4 +1,4 @@
-import '@regulaforensics/vp-frontend-face-components-beta';
+import '@regulaforensics/vp-frontend-face-components';
 
 const component = document.querySelector('face-liveness');
 

@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@regulaforensics/vp-frontend-face-components-beta": "^1.0.0"
+    "@regulaforensics/vp-frontend-face-components": "^2.0.0"
   },
   "devDependencies": {
     "babel-loader": "^8.2.5",

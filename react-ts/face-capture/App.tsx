@@ -2,9 +2,9 @@ import * as React from 'react';
 import {
     FaceDetectionWebComponent,
     FaceCaptureDetailType
-} from '@regulaforensics/vp-frontend-face-components-beta';
+} from '@regulaforensics/vp-frontend-face-components';
 
-function App(): JSX.Element {
+function App() {
     const component = React.useRef<FaceDetectionWebComponent>(null);
     const memoizedListener = React.useCallback((data: CustomEvent<FaceCaptureDetailType>) => {
         if (data.detail) {

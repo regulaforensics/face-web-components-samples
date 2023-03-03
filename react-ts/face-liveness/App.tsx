@@ -2,9 +2,9 @@ import * as React from 'react';
 import {
     FaceLivenessWebComponent,
     FaceLivenessDetailType
-} from '@regulaforensics/vp-frontend-face-components-beta';
+} from '@regulaforensics/vp-frontend-face-components';
 
-function App(): JSX.Element {
+function App() {
     const component = React.useRef<FaceLivenessWebComponent>(null);
     const memoizedListener = React.useCallback((data: CustomEvent<FaceLivenessDetailType>) => {
         if (data.detail) {
