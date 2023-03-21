@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@regulaforensics/vp-frontend-face-components": "^2.0.0",
+    "@regulaforensics/vp-frontend-face-components": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
