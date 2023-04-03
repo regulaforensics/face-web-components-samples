@@ -6,29 +6,77 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My app</title>
+    <style>
+        #container {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 30px;
+            color: white;
+            font-size: 16px;
+            border-radius: 2px;
+            background-color: #bd7dff;
+            border: 1px solid #bd7dff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<face-liveness start-screen></face-liveness>
+<div id="container">
+    <button id="button">Open component</button>
+</div>
+<!-- Replace <VERSION> with the package version -->
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@<VERSION>/dist/main.js"></script>
 <script>
-    const component = document.querySelector('face-liveness');
+    const container = document.querySelector('#container');
+    const button = document.querySelector('#button');
 
-    // OPTIONAL: you can add headers for the request or session id
-    component.headers = {
-        'Any-header': 'header-value',
+    function createFaceLiveness() {
+        const faceLivenessElement = document.createElement('face-liveness');
+
+        // OPTIONAL: you can add headers for the request or session id
+        faceLivenessElement.headers = {
+            'Any-header': 'header-value',
+        }
+        faceLivenessElement.sessionId = 'ID';
+
+        faceLivenessElement.setAttribute('start-screen', 'true');
+
+        return faceLivenessElement;
     }
-    component.sessionId = 'ID';
 
+    function faceLivenessListener(data) {
+        if (data.detail.action === 'PROCESS_FINISHED') {
+            if (data.detail.data?.status === 1 && data.detail.data.response) {
+                console.log(data.detail.data.response);
+            }
+        }
+        if (data.detail?.action === 'CLOSE') {
+            const faceLiveness = document.querySelector('face-liveness');
 
-    function listener(event) {
-        if (event.detail) {
-            const response = event.detail; // The response of the component will be located here
-            console.log(response);
+            if (faceLiveness) {
+                faceLiveness.remove();
+            }
+
+            button.style.display = 'block';
         }
     }
 
-    component.addEventListener('face-liveness', listener);
+    function buttonListener(event) {
+        container.append(createFaceLiveness());
+        event.target.style.display = 'none';
+    }
+
+    container.addEventListener('face-liveness', faceLivenessListener);
+    button.addEventListener('click', buttonListener);
 </script>
-<!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@<VERSION>/dist/main.js"></script>
 </body>
 </html>

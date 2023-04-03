@@ -1,18 +1,43 @@
 import '@regulaforensics/vp-frontend-face-components';
 
-const component = document.querySelector('face-liveness');
+const container = document.querySelector('#container');
+const button = document.querySelector('#button');
 
-// OPTIONAL: you can add headers for the request or session id
-component.headers = {
-    'Any-header': 'header-value',
+function createFaceLiveness() {
+    const faceLivenessElement = document.createElement('face-liveness');
+
+    // OPTIONAL: you can add headers for the request or session id
+    faceLivenessElement.headers = {
+        'Any-header': 'header-value',
+    }
+    faceLivenessElement.sessionId = 'ID';
+
+    faceLivenessElement.setAttribute('start-screen', 'true');
+
+    return faceLivenessElement;
 }
-component.sessionId = 'ID';
 
-function listener(event) {
-    if (event.detail) {
-        const response = event.detail; // The response of the component will be located here
-        console.log(response);
+function faceLivenessListener(data) {
+    if (data.detail.action === 'PROCESS_FINISHED') {
+        if (data.detail.data?.status === 1 && data.detail.data.response) {
+            console.log(data.detail.data.response);
+        }
+    }
+    if (data.detail?.action === 'CLOSE') {
+        const faceLiveness = document.querySelector('face-liveness');
+
+        if (faceLiveness) {
+            faceLiveness.remove();
+        }
+
+        button.style.display = 'block';
     }
 }
 
-component.addEventListener('face-liveness', listener);
+function buttonListener(event) {
+    container.append(createFaceLiveness());
+    event.target.style.display = 'none';
+}
+
+container.addEventListener('face-liveness', faceLivenessListener);
+button.addEventListener('click', buttonListener);
