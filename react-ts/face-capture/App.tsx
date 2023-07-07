@@ -52,7 +52,7 @@ function App() {
     return (
         <div style={containerStyle} ref={containerRef}>
             {isOpen ? (
-                <face-capture start-screen></face-capture>
+                <face-capture></face-capture>
             ) : (
                 <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
             )}

@@ -1,5 +1,5 @@
 <div class="container" (face-capture)="faceCaptureHandler($event)">
-    <face-capture *ngIf="isOpen; else openButton" start-screen></face-capture>
+    <face-capture *ngIf="isOpen; else openButton"></face-capture>
     <ng-template #openButton>
         <button (click)="isOpen = true">Open component</button>
     </ng-template>

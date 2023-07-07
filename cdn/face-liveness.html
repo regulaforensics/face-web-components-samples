@@ -33,8 +33,7 @@
 <div id="container">
     <button id="button">Open component</button>
 </div>
-<!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@<VERSION>/dist/main.js"></script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@latest/dist/main.js"></script>
 <script>
     const container = document.querySelector('#container');
     const button = document.querySelector('#button');
@@ -43,12 +42,15 @@
         const faceLivenessElement = document.createElement('face-liveness');
 
         // OPTIONAL: you can add headers for the request or session id
-        faceLivenessElement.headers = {
-            'Any-header': 'header-value',
+        faceLivenessElement.settings = {
+            headers: {
+                'Any-header': 'header-value',
+            },
+            tag: 'ID',
+            customization: {
+                onboardingScreenStartButtonBackground: '#5b5050',
+            }
         }
-        faceLivenessElement.sessionId = 'ID';
-
-        faceLivenessElement.setAttribute('start-screen', 'true');
 
         return faceLivenessElement;
     }

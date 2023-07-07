@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FaceLivenessDetailType } from '@regulaforensics/vp-frontend-face-components';
+import { FaceLivenessDetailType, FaceLivenessWebComponent } from '@regulaforensics/vp-frontend-face-components';
 
 const containerStyle = {
     display: 'flex',
@@ -25,6 +25,7 @@ const buttonStyle = {
 function App() {
     const [isOpen, setIsOpen] = React.useState(false);
     const containerRef = React.useRef<HTMLDivElement>(null);
+    const componentRef = React.useRef<FaceLivenessWebComponent>(null);
     const listener = (data: CustomEvent<FaceLivenessDetailType>) => {
         if (data.detail.action === 'PROCESS_FINISHED') {
             if (data.detail.data?.status === 1 && data.detail.data.response) {
@@ -32,10 +33,24 @@ function App() {
             }
         }
 
-        if (data.detail?.action === 'CLOSE') {
+        if (data.detail?.action === 'CLOSE' || data.detail?.action === 'RETRY_COUNTER_EXCEEDED') {
             setIsOpen(false);
         }
     };
+
+    React.useEffect(() => {
+        if (isOpen && componentRef.current) {
+            componentRef.current.settings = {
+                headers: {
+                    Test: 'Test',
+                },
+                tag: '123',
+                customization: {
+                    onboardingScreenStartButtonBackground: '#5b5050',
+                }
+            }
+        }
+    }, [isOpen]);
 
     React.useEffect(() => {
         const containerCurrent = containerRef.current;
@@ -52,7 +67,7 @@ function App() {
     return (
         <div style={containerStyle} ref={containerRef}>
             {isOpen ? (
-                <face-liveness start-screen></face-liveness>
+                <face-liveness ref={componentRef}></face-liveness>
             ) : (
                 <button style={buttonStyle} onClick={() => setIsOpen(true)}>Open component</button>
             )}

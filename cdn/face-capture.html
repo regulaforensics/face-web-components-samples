@@ -33,16 +33,19 @@
 <div id="container">
     <button id="button">Open component</button>
 </div>
-<!-- Replace <VERSION> with the package version -->
-<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@<VERSION>/dist/main.js"></script>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@latest/dist/main.js"></script>
 <script>
     const container = document.querySelector('#container');
     const button = document.querySelector('#button');
 
     function createFaceCapture() {
         const faceCaptureElement = document.createElement('face-capture');
-
-        faceCaptureElement.setAttribute('start-screen', 'true');
+        faceCaptureElement.settings = {
+            copyright: true,
+            customization: {
+                onboardingScreenStartButtonBackground: '#5b5050',
+            }
+        };
 
         return faceCaptureElement;
     }
