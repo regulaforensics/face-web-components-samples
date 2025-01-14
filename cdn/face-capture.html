@@ -38,8 +38,9 @@
     const container = document.querySelector('#container');
     const button = document.querySelector('#button');
 
-    function createFaceCapture() {
-        const faceCaptureElement = document.createElement('face-capture');
+    function createAndAppendFaceCapture() {
+        const faceCaptureElement = document.createElement('face-capture');        
+        container.append(faceCaptureElement);
         faceCaptureElement.settings = {
             copyright: true,
             customization: {
@@ -47,7 +48,6 @@
             }
         };
 
-        return faceCaptureElement;
     }
 
     function faceCaptureListener(data) {
@@ -68,7 +68,7 @@
     }
 
     function buttonListener(event) {
-        container.append(createFaceCapture());
+        createAndAppendFaceCapture();
         event.target.style.display = 'none';
     }
 
