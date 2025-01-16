@@ -38,9 +38,9 @@
     const container = document.querySelector('#container');
     const button = document.querySelector('#button');
 
-    function createFaceLiveness() {
+    function createAndAppendFaceLiveness() {
         const faceLivenessElement = document.createElement('face-liveness');
-
+        container.append(faceLivenessElement);
         // OPTIONAL: you can add headers for the request or session id
         faceLivenessElement.settings = {
             headers: {
@@ -51,8 +51,6 @@
                 onboardingScreenStartButtonBackground: '#5b5050',
             }
         }
-
-        return faceLivenessElement;
     }
 
     function faceLivenessListener(data) {
@@ -73,7 +71,7 @@
     }
 
     function buttonListener(event) {
-        container.append(createFaceLiveness());
+        createAndAppendFaceLiveness();
         event.target.style.display = 'none';
     }
 
