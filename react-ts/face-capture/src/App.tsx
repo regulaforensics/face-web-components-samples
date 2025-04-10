@@ -4,6 +4,7 @@ import type {
   FaceCaptureDetailType,
 } from "@regulaforensics/vp-frontend-face-components";
 import "@regulaforensics/vp-frontend-face-components";
+import "./App.css";
 
 const containerStyle = {
   display: "flex",

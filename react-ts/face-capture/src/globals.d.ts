@@ -3,7 +3,7 @@ import { FaceDetectionWebComponent, IFaceDetection } from '@regulaforensics/vp-f
 declare global {
     namespace React.JSX {
         interface IntrinsicElements {
-            'face-capture': React.DetailedHTMLProps<IFaceDetection & React.HTMLAttributes<FaceDetectionWebComponent>,
+            'face-capture': DetailedHTMLProps<IFaceDetection & HTMLAttributes<FaceDetectionWebComponent>,
                 FaceDetectionWebComponent>;
         }
     }
