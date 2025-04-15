@@ -10,10 +10,10 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.16.19",
-    "nuxt": "^3.6.2"
+    "@types/node": "^18.19.86",
+    "nuxt": "^3.16.2"
   },
   "dependencies": {
-    "@regulaforensics/vp-frontend-face-components": "^3.0.0"
+    "@regulaforensics/vp-frontend-face-components": "^6.4.1547"
   }
 }
