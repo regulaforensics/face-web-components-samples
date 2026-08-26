@@ -50,6 +50,8 @@ watch(component, (newValue, _) => {
   if (newValue) {
     faceWebComponent.settings = {
       tag: 'id',
+      // if you want to use face liveness passive with blink, uncomment the line below and comment the line above
+      // livenessType: FaceLivenessType.BLINK,
       livenessType: FaceLivenessType.PASSIVE,
       customization: {
         onboardingScreenStartButtonBackground: '#414141',

@@ -82,7 +82,3 @@ https://codepen.io/regulaforensics/pen/pordKzd
 ### Face liveness component - passive
 
 https://codepen.io/regulaforensics/pen/qErBzzN
-
-### Face liveness component - passive with blink
-
-https://codepen.io/regulaforensics/pen/dPvyBxN

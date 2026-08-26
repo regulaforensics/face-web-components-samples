@@ -42,6 +42,8 @@
         const faceLivenessElement = document.createElement('face-liveness');
         container.append(faceLivenessElement);
         faceLivenessElement.settings = {
+            // if you want to use face liveness passive with blink, uncomment the line below and comment the line above
+            // livenessType: 3, // Passive with Blink
             livenessType: 1, // Passive
             customization: {
                 onboardingScreenStartButtonBackground: '#5b5050',

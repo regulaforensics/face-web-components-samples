@@ -1,6 +1,0 @@
-<div class="container" (face-liveness)="faceLivenessHandler($event)">
-    <app-face *ngIf="isOpen; else openButton"></app-face>
-    <ng-template #openButton>
-        <button (click)="isOpen = true">Open component</button>
-    </ng-template>
-</div>

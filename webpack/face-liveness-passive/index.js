@@ -15,6 +15,8 @@ function createFaceLiveness() {
 
     faceLivenessElement.setAttribute('start-screen', 'true');
     faceLivenessElement.settings = {
+        // if you want to use face liveness passive with blink, uncomment the line below and comment the line above
+        // livenessType: FaceLivenessType.BLINK,
         livenessType: FaceLivenessType.PASSIVE,
     };
 

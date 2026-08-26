@@ -50,6 +50,8 @@ function App() {
   React.useEffect(() => {
     if (isOpen && componentRef.current) {
       componentRef.current.settings = {
+        // if you want to use face liveness passive with blink, uncomment the line below and comment the line above
+        // livenessType: FaceLivenessType.BLINK,
         livenessType: FaceLivenessType.PASSIVE,
         customization: {
           onboardingScreenStartButtonBackground: "#5b5050",
