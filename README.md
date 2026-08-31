@@ -1,4 +1,5 @@
 # Table of сontents
+
 1. [About](#about)
 1. [CDN sample](#cdn-sample)
 1. [Webpack sample](#webpack-sample)
@@ -12,13 +13,15 @@
 
 This repository contains examples of using [@regulaforensics/vp-frontend-face-components](https://www.npmjs.com/package/@regulaforensics/vp-frontend-face-components).
 
+These samples require **Node.js 24 or later**.
+
 ## CDN sample
 
-The ```cdn``` folder contains an example of using the component when connecting a package via a cdn link.
+The `cdn` folder contains an example of using the component when connecting a package via a cdn link.
 
 ### Adding a package:
 
-Connect the package to your ```.html``` file using the CDN link: ```unpkg.com/:package@:version/:file```
+Connect the package to your `.html` file using the CDN link: `unpkg.com/:package@:version/:file`
 
 ```html
 <!-- Replace <VERSION> with the package version -->
@@ -29,11 +32,11 @@ Add the name of the component tag to the html code.
 
 ## Webpack sample
 
-The ```webpack``` folder contains an example of using components with Webpack.
+The `webpack` folder contains an example of using components with Webpack.
 
 ### Example installation
 
-Clone this repository then go to the ```webpack/<component-name>``` folder and install the dependencies:
+Clone this repository then go to the `webpack/<component-name>` folder and install the dependencies:
 
 ```
 npm i
@@ -45,7 +48,7 @@ Build a project:
 npm run build
 ```
 
-The project files will be located in the ```build``` folder.
+The project files will be located in the `build` folder.
 
 Development mode:
 
@@ -55,7 +58,7 @@ npm run serve
 
 ## React typescript
 
-The ```react-ts/<component-name>``` folder contains an example of using a component with react and typescript.
+The `react-ts/<component-name>` folder contains an example of using a component with react and typescript.
 
 ### Example installation
 
@@ -63,7 +66,7 @@ Follow the steps as in [Webpack sample](#webpack-sample).
 
 ## Angular sample
 
-The ```angular/<component-name>``` folder contains an example of using a component with Angular.
+The `angular/<component-name>` folder contains an example of using a component with Angular.
 
 ### Example installation
 
@@ -78,3 +81,7 @@ https://codepen.io/regulaforensics/pen/zYdParM
 ### Face liveness component
 
 https://codepen.io/regulaforensics/pen/pordKzd
+
+### Face liveness component - passive
+
+https://codepen.io/regulaforensics/pen/qErBzzN

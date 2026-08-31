@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Face Liveness – Passive</title>
+    <style>
+        #container {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 30px;
+            color: white;
+            font-size: 16px;
+            border-radius: 2px;
+            background-color: #bd7dff;
+            border: 1px solid #bd7dff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <button id="button">Open component</button>
+</div>
+<script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@latest/dist/main.iife.js"></script>
+<script>
+    const container = document.querySelector('#container');
+    const button = document.querySelector('#button');
+
+    function createAndAppendFaceLiveness() {
+        const faceLivenessElement = document.createElement('face-liveness');
+        container.append(faceLivenessElement);
+        faceLivenessElement.settings = {
+            // if you want to use face liveness passive with blink, uncomment the line below and comment the line above
+            // livenessType: 3, // Passive with Blink
+            livenessType: 1, // Passive
+            customization: {
+                onboardingScreenStartButtonBackground: '#5b5050',
+            }
+        }
+    }
+
+    function faceLivenessListener(data) {
+        if (data.detail.action === 'PROCESS_FINISHED') {
+            if (data.detail.data?.status === 1 && data.detail.data.response) {
+                console.log(data.detail.data.response);
+            }
+        }
+        if (data.detail?.action === 'CLOSE') {
+            const faceLiveness = document.querySelector('face-liveness');
+
+            if (faceLiveness) {
+                faceLiveness.remove();
+            }
+
+            button.style.display = 'block';
+        }
+    }
+
+    function buttonListener(event) {
+        createAndAppendFaceLiveness();
+        event.target.style.display = 'none';
+    }
+
+    container.addEventListener('face-liveness', faceLivenessListener);
+    button.addEventListener('click', buttonListener);
+</script>
+</body>
+</html>
