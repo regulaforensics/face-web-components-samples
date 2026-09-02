@@ -189,7 +189,7 @@ function App() {
               style={buttonStyle}
               onClick={() => {
                 if (!personId) {
-                  alert("Please enter a person ID");
+                  alert("Please enter a person ID or enroll a new person");
                   return;
                 }
                 setOpenComponent("verify");
