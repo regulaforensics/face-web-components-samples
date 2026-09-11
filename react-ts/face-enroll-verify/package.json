@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "@regulaforensics/vp-frontend-face-components": "8.4.2351-nightly"
+    "@regulaforensics/vp-frontend-face-components": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
