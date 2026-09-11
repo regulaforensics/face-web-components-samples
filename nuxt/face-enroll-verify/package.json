@@ -1,0 +1,18 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "serve": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "init": "npm i"
+  },
+  "dependencies": {
+    "@regulaforensics/vp-frontend-face-components": "*",
+    "nuxt": "^4.5.2",
+    "vue": "latest"
+  }
+}

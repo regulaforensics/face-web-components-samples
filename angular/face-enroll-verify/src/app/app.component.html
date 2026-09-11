@@ -1,0 +1,58 @@
+<div
+  class="container"
+  (face-enroll)="enrollHandler($event)"
+  (face-verify)="verifyHandler($event)"
+  >
+  @if (openComponent === 'enroll') {
+    <app-enroll></app-enroll>
+  }
+  @if (openComponent === 'verify') {
+    <app-verify
+      [personId]="personId"
+    ></app-verify>
+  }
+
+  @if (!openComponent) {
+    <div class="result-container">
+      @if (enrollResponse && enrollResponse.enrollResult) {
+        <div>
+          <h4 class="result-text">Enroll info:</h4>
+          <img
+            [src]="'data:image/jpeg;base64,' + enrollResponse.images[0]"
+            style="width: 300px; height: auto"
+            />
+          <p class="result-text">
+            Enrolled: {{ enrollResponse.enrollResult?.enrolled }}
+          </p>
+          <p class="result-text">
+            Person ID: {{ enrollResponse.enrollResult?.person?.id }}
+          </p>
+          <p class="result-text">
+            Person name: {{ enrollResponse.enrollResult?.person?.name }}
+          </p>
+        </div>
+      }
+      @if (verifyResponse && verifyResponse.verifyResult) {
+        <div>
+          <h4 class="result-text">Verification info:</h4>
+          <p class="result-text">
+            Verified: {{ verifyResponse.verifyResult?.verified }}
+          </p>
+          <p class="result-text">
+            Similarity: {{ verifyResponse.verifyResult?.match?.similarity }}
+          </p>
+        </div>
+      }
+      <input
+        type="text"
+        placeholder="Person ID"
+        [value]="personId"
+        (input)="onPersonIdChange($event)"
+        />
+      <div class="button-container">
+        <button (click)="openEnroll()">Open enroll</button>
+        <button (click)="openVerify()">Open verify</button>
+      </div>
+    </div>
+  }
+</div>
