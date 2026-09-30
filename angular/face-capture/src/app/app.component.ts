@@ -1,5 +1,10 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+
 import { FaceComponent } from "./components/face.component";
 import "@regulaforensics/vp-frontend-face-components";
 import { FaceCaptureDetailType } from "@regulaforensics/vp-frontend-face-components";
@@ -7,7 +12,8 @@ import { FaceCaptureDetailType } from "@regulaforensics/vp-frontend-face-compone
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
-  imports: [CommonModule, FaceComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [FaceComponent],
 })
 export class AppComponent implements OnInit, OnDestroy {
   isOpen: boolean = false;
