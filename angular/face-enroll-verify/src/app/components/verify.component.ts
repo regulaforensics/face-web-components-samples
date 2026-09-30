@@ -5,7 +5,7 @@ import {
   ElementRef,
   CUSTOM_ELEMENTS_SCHEMA,
   Input,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from "@angular/core";
 import { FaceVerifyWebComponent } from "@regulaforensics/vp-frontend-face-components";
 

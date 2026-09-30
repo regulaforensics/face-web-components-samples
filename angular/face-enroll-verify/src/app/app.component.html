@@ -2,14 +2,12 @@
   class="container"
   (face-enroll)="enrollHandler($event)"
   (face-verify)="verifyHandler($event)"
-  >
-  @if (openComponent === 'enroll') {
+>
+  @if (openComponent === "enroll") {
     <app-enroll></app-enroll>
   }
-  @if (openComponent === 'verify') {
-    <app-verify
-      [personId]="personId"
-    ></app-verify>
+  @if (openComponent === "verify") {
+    <app-verify [personId]="personId"></app-verify>
   }
 
   @if (!openComponent) {
@@ -20,7 +18,7 @@
           <img
             [src]="'data:image/jpeg;base64,' + enrollResponse.images[0]"
             style="width: 300px; height: auto"
-            />
+          />
           <p class="result-text">
             Enrolled: {{ enrollResponse.enrollResult?.enrolled }}
           </p>
@@ -48,7 +46,7 @@
         placeholder="Person ID"
         [value]="personId"
         (input)="onPersonIdChange($event)"
-        />
+      />
       <div class="button-container">
         <button (click)="openEnroll()">Open enroll</button>
         <button (click)="openVerify()">Open verify</button>

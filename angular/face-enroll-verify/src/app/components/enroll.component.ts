@@ -4,7 +4,7 @@ import {
   ViewChild,
   ElementRef,
   CUSTOM_ELEMENTS_SCHEMA,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from "@angular/core";
 import { FaceEnrollWebComponent } from "@regulaforensics/vp-frontend-face-components";
 
