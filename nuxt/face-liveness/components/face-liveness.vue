@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="container"
-    ref="container"
-  >
+  <div class="container" ref="container">
     <face-liveness ref="component" v-if="isOpen"></face-liveness>
     <button v-else="!isOpen" @click="isOpen = true">Open component</button>
   </div>
@@ -19,7 +16,10 @@
 </style>
 
 <script setup lang="ts">
-import { FaceLivenessWebComponent, type FaceLivenessDetailType } from "@regulaforensics/vp-frontend-face-components";
+import {
+  type FaceLivenessWebComponent,
+  type FaceLivenessDetailType,
+} from "@regulaforensics/vp-frontend-face-components";
 
 const container = ref<HTMLDivElement>();
 const component = ref<FaceLivenessWebComponent>();
@@ -34,27 +34,24 @@ const listener = (data: CustomEvent<FaceLivenessDetailType>) => {
   }
 };
 onMounted(() => {
-  if(!container.value) return;
+  if (!container.value) return;
   container.value?.addEventListener("face-liveness", listener);
 });
 onUnmounted(() => {
-  if(!container.value) return;
+  if (!container.value) return;
   container.value?.removeEventListener("face-liveness", listener);
 });
-
-
 
 watch(component, (newValue, _) => {
   const faceWebComponent = component.value;
   if (!faceWebComponent) return;
   if (newValue) {
     faceWebComponent.settings = {
-      tag: 'id',
+      tag: "id",
       customization: {
-        onboardingScreenStartButtonBackground: '#414141',
-      }
-    }
+        onboardingScreenStartButtonBackground: "#414141",
+      },
+    };
   }
 });
-
 </script>
