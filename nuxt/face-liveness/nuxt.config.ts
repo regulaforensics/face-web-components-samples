@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => ['face-liveness'].includes(tag),
-    }
+      isCustomElement: (tag) => ["face-liveness"].includes(tag),
+    },
   },
-})
+});

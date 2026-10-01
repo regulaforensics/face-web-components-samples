@@ -15,7 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { FaceDetectionWebComponent, type FaceCaptureDetailType } from "@regulaforensics/vp-frontend-face-components";
+import {
+  type FaceDetectionWebComponent,
+  type FaceCaptureDetailType,
+} from "@regulaforensics/vp-frontend-face-components";
 
 const container = ref<HTMLDivElement>();
 const component = ref<FaceDetectionWebComponent>();
@@ -43,9 +46,9 @@ watch(component, (newValue, _) => {
   if (newValue) {
     faceWebComponent.settings = {
       customization: {
-        onboardingScreenStartButtonBackground: '#414141',
-      }
-    }
+        onboardingScreenStartButtonBackground: "#414141",
+      },
+    };
   }
-})
+});
 </script>

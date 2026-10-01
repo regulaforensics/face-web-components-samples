@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      #container {
+        display: flex;
+        gap: 24px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #result-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      #button-container {
+        display: flex;
+        gap: 12px;
+      }
+
+      button {
+        padding: 10px 30px;
+        color: white;
+        font-size: 16px;
+        border-radius: 2px;
+        background-color: #bd7dff;
+        border: 1px solid #bd7dff;
+        cursor: pointer;
+      }
+
+      .result-text {
+        max-width: 250px;
+        font-size: 14px;
+        color: #333;
+        margin: 0;
+      }
+
+      face-enroll,
+      face-verify {
+        background: #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="result-container">
+        <div id="enroll-info" style="display: none">
+          <h4 class="result-text">Enroll info:</h4>
+          <img id="enroll-image" style="width: 300px; height: auto" />
+          <p class="result-text">Enrolled: <span id="enrolled"></span></p>
+          <p class="result-text">
+            Person ID: <span id="enroll-person-id"></span>
+          </p>
+          <p class="result-text">
+            Person name: <span id="enroll-person-name"></span>
+          </p>
+        </div>
+        <div id="verify-info" style="display: none">
+          <h4 class="result-text">Verification info:</h4>
+          <p class="result-text">Verified: <span id="verified"></span></p>
+          <p class="result-text">Similarity: <span id="similarity"></span></p>
+        </div>
+        <input type="text" id="person-id" placeholder="Person ID" />
+        <div id="button-container">
+          <button id="enroll-button">Open enroll</button>
+          <button id="verify-button">Open verify</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
