@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Face Enroll Verify</title>
+    <style>
+      #container {
+        display: flex;
+        gap: 24px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #result-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      #button-container {
+        display: flex;
+        gap: 12px;
+      }
+
+      button {
+        padding: 10px 30px;
+        color: white;
+        font-size: 16px;
+        border-radius: 2px;
+        background-color: #bd7dff;
+        border: 1px solid #bd7dff;
+        cursor: pointer;
+      }
+
+      .result-text {
+        max-width: 250px;
+        font-size: 14px;
+        color: #333;
+        margin: 0;
+      }
+
+      face-enroll,
+      face-verify {
+        background: #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="result-container">
+        <div id="enroll-info" style="display: none">
+          <h4 class="result-text">Enroll info:</h4>
+          <img id="enroll-image" style="width: 300px; height: auto" />
+          <p class="result-text">Enrolled: <span id="enrolled"></span></p>
+          <p class="result-text">
+            Person ID: <span id="enroll-person-id"></span>
+          </p>
+          <p class="result-text">
+            Person name: <span id="enroll-person-name"></span>
+          </p>
+        </div>
+        <div id="verify-info" style="display: none">
+          <h4 class="result-text">Verification info:</h4>
+          <p class="result-text">Verified: <span id="verified"></span></p>
+          <p class="result-text">Similarity: <span id="similarity"></span></p>
+        </div>
+        <input type="text" id="person-id" placeholder="Person ID" />
+        <div id="button-container">
+          <button id="enroll-button">Open enroll</button>
+          <button id="verify-button">Open verify</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@regulaforensics/vp-frontend-face-components@latest/dist/main.iife.js"></script>
+    <script>
+      const container = document.querySelector("#container");
+      const resultContainer = document.querySelector("#result-container");
+      const enrollButton = document.querySelector("#enroll-button");
+      const verifyButton = document.querySelector("#verify-button");
+      const personIdInput = document.querySelector("#person-id");
+      const enrollInfo = document.querySelector("#enroll-info");
+      const verifyInfo = document.querySelector("#verify-info");
+
+      let personId = "";
+
+      function createAndAppendFaceEnroll() {
+        const faceEnrollElement = document.createElement("face-enroll");
+        container.append(faceEnrollElement);
+        faceEnrollElement.settings = {
+          enroll: {
+            person: {}, // person with empty object will be created with default settings (groups - default value is empty array)
+          },
+          customization: {
+            onboardingScreenStartButtonBackground: "#5b5050",
+          },
+        };
+      }
+
+      function createAndAppendFaceVerify() {
+        const faceVerifyElement = document.createElement("face-verify");
+        container.append(faceVerifyElement);
+        faceVerifyElement.settings = {
+          verify: {
+            personId: personId, // personId is required
+          },
+          customization: {
+            onboardingScreenStartButtonBackground: "#5b5050",
+          },
+        };
+      }
+
+      function closeComponent(selector) {
+        const element = document.querySelector(selector);
+
+        if (element) {
+          element.remove();
+        }
+
+        resultContainer.style.display = "flex";
+      }
+
+      function renderEnrollInfo(response) {
+        if (!response.enrollResult) return;
+
+        enrollInfo.style.display = "block";
+        document.querySelector("#enroll-image").src =
+          `data:image/jpeg;base64,${response.images[0]}`;
+        document.querySelector("#enrolled").textContent = String(
+          response.enrollResult?.enrolled,
+        );
+        document.querySelector("#enroll-person-id").textContent =
+          response.enrollResult?.person?.id;
+        document.querySelector("#enroll-person-name").textContent =
+          response.enrollResult?.person?.name;
+      }
+
+      function renderVerifyInfo(response) {
+        if (!response.verifyResult) return;
+
+        verifyInfo.style.display = "block";
+        document.querySelector("#verified").textContent = String(
+          response.verifyResult?.verified,
+        );
+        document.querySelector("#similarity").textContent =
+          response.verifyResult?.match?.similarity;
+      }
+
+      function faceEnrollListener(data) {
+        if (data.detail.action === "PROCESS_FINISHED") {
+          if (data.detail.data?.status === 1 && data.detail.data.response) {
+            console.log(data.detail.data.response);
+            personId = data.detail.data.response.enrollResult?.person?.id || "";
+            personIdInput.value = personId;
+            renderEnrollInfo(data.detail.data.response);
+          }
+        }
+
+        if (
+          data.detail?.action === "CLOSE" ||
+          data.detail?.action === "RETRY_COUNTER_EXCEEDED"
+        ) {
+          closeComponent("face-enroll");
+        }
+      }
+
+      function faceVerifyListener(data) {
+        if (data.detail.action === "PROCESS_FINISHED") {
+          if (data.detail.data?.status === 1 && data.detail.data.response) {
+            console.log(data.detail.data.response);
+            renderVerifyInfo(data.detail.data.response);
+          }
+        }
+
+        if (
+          data.detail?.action === "CLOSE" ||
+          data.detail?.action === "RETRY_COUNTER_EXCEEDED"
+        ) {
+          closeComponent("face-verify");
+        }
+      }
+
+      personIdInput.addEventListener("input", (event) => {
+        personId = event.target.value;
+      });
+
+      enrollButton.addEventListener("click", () => {
+        resultContainer.style.display = "none";
+        createAndAppendFaceEnroll();
+      });
+
+      verifyButton.addEventListener("click", () => {
+        if (!personId) {
+          alert("Please enter a person ID or enroll a new person");
+          return;
+        }
+
+        resultContainer.style.display = "none";
+        createAndAppendFaceVerify();
+      });
+
+      container.addEventListener("face-enroll", faceEnrollListener);
+      container.addEventListener("face-verify", faceVerifyListener);
+    </script>
+  </body>
+</html>
