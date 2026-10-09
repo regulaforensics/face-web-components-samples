@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => ['face-capture'].includes(tag),
-    }
+      isCustomElement: (tag) => ["face-capture"].includes(tag),
+    },
   },
-})
+});

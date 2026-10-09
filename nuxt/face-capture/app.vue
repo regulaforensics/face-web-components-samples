@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-  import FaceCapture from '@/components/face-capture.vue';
+import FaceCapture from "@/components/face-capture.vue";
 </script>
 
 <style>
