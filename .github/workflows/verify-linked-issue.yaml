@@ -1,0 +1,8 @@
+name: Verify Issue
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  verify-issue:
+    uses: regulaforensics/reusable-workflows/.github/workflows/verify-linked-issue.yaml@main
