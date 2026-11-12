@@ -1,18 +1,6 @@
-# This repository is public and cannot call reusable workflows from a private
-# repository (regulaforensics/reusable-workflows). The logic below is a local
-# copy that mirrors the reusable workflow exactly. SHA pins are kept up-to-date
-# by Renovate (see renovate.json).
 name: SAST
-
 on:
   pull_request:
-    branches:
-      - develop
-      - staging
-      - production
-      - stable
-      - main
-      - master
 
 jobs:
   semgrep:

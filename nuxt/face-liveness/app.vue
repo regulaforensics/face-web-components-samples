@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-  import FaceLiveness from '@/components/face-liveness.vue';
+import FaceLiveness from "@/components/face-liveness.vue";
 </script>
 
 <style>

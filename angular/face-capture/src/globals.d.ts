@@ -1,7 +1,7 @@
-import { FaceDetectionWebComponent } from '@regulaforensics/vp-frontend-face-components';
+import { FaceDetectionWebComponent } from "@regulaforensics/vp-frontend-face-components";
 
 declare global {
-    interface HTMLElementTagNameMap {
-        'face-capture': FaceDetectionWebComponent;
-    }
+  interface HTMLElementTagNameMap {
+    "face-capture": FaceDetectionWebComponent;
+  }
 }
