@@ -4,4 +4,4 @@ on:
 
 jobs:
   trivy:
-    uses: regulaforensics/reusable-workflows/.github/workflows/trivy-scan.yaml@main
+    uses: regulaforensics/reusable-workflows/.github/workflows/trivy-scan.yaml@e410456c471e4d96cc30c5f1b4370fb81eaacfeb # main
