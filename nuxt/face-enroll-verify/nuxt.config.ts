@@ -7,4 +7,9 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => ["face-enroll", "face-verify"].includes(tag),
     },
   },
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1500,
+    },
+  },
 });

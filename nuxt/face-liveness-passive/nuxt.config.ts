@@ -4,7 +4,12 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => ['face-liveness'].includes(tag),
-    }
+      isCustomElement: (tag) => ["face-liveness"].includes(tag),
+    },
   },
-})
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1500,
+    },
+  },
+});
