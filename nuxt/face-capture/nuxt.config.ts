@@ -7,4 +7,9 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => ["face-capture"].includes(tag),
     },
   },
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1500,
+    },
+  },
 });
